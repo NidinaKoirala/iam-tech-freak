@@ -17,7 +17,7 @@ jobs:
         run: |
           git clone --depth 1 https://$TOKEN@github.com/NidinaKoirala/iam-tech-freak.git
           cd ${GITHUB_WORKSPACE}/iam-tech-freak
-          echo "Last updated on $(date)" > update.txt
+          echo "Last updated on $(date)" >> update.txt
           git config user.name "Nidina Koirala"
           git config user.email "nidinakoirala1112@gmail.com"
           git add update.txt
