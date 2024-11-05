@@ -12,6 +12,8 @@ jobs:
     steps:
 
       - name: Update README Timestamp
+        env:      
+          TOKEN: ${{ secrets.TOKEN }}      
         run: |
           git clone --depth 1 https://$TOKEN@github.com/NidinaKoirala/iam-tech-freak.git
           cd ${GITHUB_WORKSPACE}/iam-tech-freak
