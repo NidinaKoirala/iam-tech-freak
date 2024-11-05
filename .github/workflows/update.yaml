@@ -1,0 +1,27 @@
+name: Update
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  
+  workflow_dispatch:    
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Update README Timestamp
+        run: |
+          echo "Last updated on $(date)" > update.txt
+          git config user.name "Nidina Koirala"
+          git config user.email "nidinakoirala1112@gmail.com"
+          git add update.txt
+          git commit -m "Auto-update timestamp: $(date)"
+          
+      - name: Push Changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.TOKEN }}
